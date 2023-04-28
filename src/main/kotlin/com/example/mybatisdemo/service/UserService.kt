@@ -1,21 +1,21 @@
 package com.example.mybatisdemo.service
 
-import com.example.mybatisdemo.mapper.UserMapper
-import com.example.mybatisdemo.model.User
+import com.example.mybatisdemo.mapper.NoArgUserMapper
+import com.example.mybatisdemo.model.NoArgUser
 import org.springframework.stereotype.Service
 
 @Service
-class UserService(private val userMapper: UserMapper) {
+class UserService(private val noArgUserMapper: NoArgUserMapper) {
 
-    fun findAll(): List<User> = userMapper.findAll()
+    fun findAll(): List<NoArgUser> = noArgUserMapper.findAll()
 
-    fun findById(id: Int): User? = userMapper.findById(id)
+    fun findById(id: Int): NoArgUser? = noArgUserMapper.findById(id)
 
-    fun insert(user: User): Int = userMapper.insert(user)
+    fun insert(noArgUser: NoArgUser): Int = noArgUserMapper.insert(noArgUser)
 
-    fun update(user: User): Int = userMapper.update(user)
+    fun update(noArgUser: NoArgUser): Int = noArgUserMapper.update(noArgUser)
 
-    fun delete(id: Int): Int = userMapper.delete(id)
+    fun delete(id: Int): Int = noArgUserMapper.delete(id)
 
-    fun findByGroupId(id: Int) = userMapper.findByGroupId(id)
+    fun findByGroupId(id: Int) = noArgUserMapper.findByGroupId(id)
 }

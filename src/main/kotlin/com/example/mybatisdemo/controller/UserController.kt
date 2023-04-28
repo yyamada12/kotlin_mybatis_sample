@@ -1,7 +1,7 @@
 package com.example.mybatisdemo.controller
 
-import com.example.mybatisdemo.model.GroupUser
-import com.example.mybatisdemo.model.User
+import com.example.mybatisdemo.model.NoArgGroupUser
+import com.example.mybatisdemo.model.NoArgUser
 import com.example.mybatisdemo.service.UserService
 import org.springframework.web.bind.annotation.*
 
@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.*
 class UserController(private val userService: UserService) {
 
     @GetMapping
-    fun findAll(): List<User> = userService.findAll()
+    fun findAll(): List<NoArgUser> = userService.findAll()
 
     @GetMapping("/{id}")
-    fun findById(@PathVariable id: Int): User? = userService.findById(id)
+    fun findById(@PathVariable id: Int): NoArgUser? = userService.findById(id)
 
     @PostMapping
-    fun insert(@RequestBody user: User): Int = userService.insert(user)
+    fun insert(@RequestBody noArgUser: NoArgUser): Int = userService.insert(noArgUser)
 
     @PutMapping
-    fun update(@RequestBody user: User): Int = userService.update(user)
+    fun update(@RequestBody noArgUser: NoArgUser): Int = userService.update(noArgUser)
 
     @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Int): Int = userService.delete(id)
 
     @GetMapping("/groups/{id}")
-    fun findByGroupId(@PathVariable id: Int): GroupUser = userService.findByGroupId(id)
+    fun findByGroupId(@PathVariable id: Int): NoArgGroupUser = userService.findByGroupId(id)
 }
